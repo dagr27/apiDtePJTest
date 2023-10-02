@@ -1,0 +1,221 @@
+@body-color: #b7865b;
+@shirt-color: rgb(223, 210, 32);
+@pant-color: #1c35a8;
+@clear-red: rgba(255, 25, 25, 0.5);
+
+/*
+  ANIMATION 
+*/
+
+body{
+  background-color: #332525;
+  color: #fff;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #c5a7a7;
+}
+@keyframes wave-arm {
+  0% {
+    transform: rotateZ(10deg);
+  }
+  //animation gap
+  60% {
+    //start wave (lift arm)
+    transform: rotateZ(10deg);
+  }
+
+  70% {
+    transform: rotateZ(170deg);
+  }
+
+  75% {
+    transform: rotateZ(140deg);
+  }
+
+  80% {
+    transform: rotateZ(170deg);
+  }
+
+  85% {
+    transform: rotateZ(140deg);
+  }
+
+  90% {
+    //end wave (bring down arm back to 0 frame)
+    transform: rotateZ(170deg);
+  }
+}
+
+@keyframes wave-forearm {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  //animation gap
+  60% {
+    //start wave (lift arm)
+    transform: rotateZ(0deg);
+  }
+
+  70% {
+    transform: rotateZ(40deg);
+  }
+
+  75% {
+    transform: rotateZ(0deg);
+  }
+
+  80% {
+    transform: rotateZ(40deg);
+  }
+
+  85% {
+    transform: rotateZ(0deg);
+  }
+
+  90% {
+    //end wave (bring down arm back to 0 frame)
+    transform: rotateZ(40deg);
+  }
+}
+
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.body-part {
+  position: absolute;
+  background-color: @body-color;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.limb {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  transform-origin: 50% 0;
+  z-index: 2;
+}
+
+.body {
+  .abs-center;
+  width: 50px;
+  height: 250px;
+}
+
+.head {
+  .body-part;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  .neck {
+    .body-part;
+    bottom: -8px;
+    width: 10px;
+    height: 8px;
+  }
+}
+
+.limb {
+  top: 0;
+  position: absolute;
+  height: 50px;
+  width: 14px;
+  background-color: @body-color;
+  border-radius: 10px;
+  transform-origin: 50% 5px;
+  z-index: 2;
+}
+
+.leg-limb {
+  height: 60px;
+  background-color: @pant-color;
+}
+
+.torso {
+  .body-part;
+  top: 58px;
+  width: 50px;
+  height: 80px;
+  border-radius: 30px 30px 50px 50px;
+  background-color: @shirt-color;
+
+  .left-arm {
+    .limb;
+    top: 2px;
+    left: -10px;
+    transform: rotateZ(10deg);
+    background-color: @shirt-color;
+
+    .forearm {
+      .limb;
+      top: 40px;
+      transform: rotateZ(0deg);
+    }
+  }
+
+  .right-arm {
+    .limb;
+    right: -10px;
+    transform: rotateZ(-10deg);
+    background-color: @shirt-color;
+
+    .forearm {
+      .limb;
+      top: 40px;
+      transform: rotateZ(0deg);
+    }
+  }
+}
+
+.abdomen {
+  .body-part;
+  top: 120px;
+  width: 50px;
+  height: 30px;
+  border-radius: 30px 30px 50px 50px;
+  background-color: #0f3d9e;
+
+  .left-foot {
+    .limb;
+    .leg-limb;
+    top: 60%;
+    left: 0;
+
+    .lower-leg {
+      .limb;
+      .leg-limb;
+      top: 45px;
+    }
+  }
+
+  .right-foot {
+    .limb;
+    .leg-limb;
+    top: 60%;
+    right: 0;
+
+    .lower-leg {
+      .limb;
+      .leg-limb;
+      top: 45px;
+    }
+  }
+}
+
+.wave {
+  .left-arm {
+    animation: wave-arm 5s infinite;
+
+    .forearm {
+      animation: wave-forearm 5s infinite;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    background-image: url('../../images/back-home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#map {
+    height: 400px;
+    width: 50%;
+    border-radius: 3%;
+}
+.marker-icon {
+    background-color: black;
+    border-radius: 50%;
+    padding: 5px;
+    background-image: url('../../images/destello.png');
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+
+}
+.tela{
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0.70;
+    background-color: #000;
+    position: absolute;
+}
